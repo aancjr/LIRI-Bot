@@ -29,7 +29,8 @@ var concertThis = function () {
             for (var i = 0; i < 5; i++) {
                 console.log("-------------");
                 console.log("Name of Venue: " + response.data[i].venue.name);
-                console.log("Venue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
+                console.log("Venue Location: " + response.data[i].venue.city + ", " 
+                        + response.data[i].venue.region + " " + response.data[i].venue.country);
                 console.log("Date of Event: " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
                 console.log("-------------");
             }
@@ -40,6 +41,25 @@ var concertThis = function () {
 }
 
 var movieThis = function () {
+    // if (command == "movie-this" && parameter !== false) {
+    //     // console.log(parameter + "itworks!")
+    //     axios.get(movieErr).then(function (response) {
+    //         console.log("\n");
+    //         console.log("Movie Title: " + response.data.Title);
+    //         console.log("Movie Year: " + response.data.Year);
+    //         console.log("IMDB Rating: " + response.data.imdbRating);
+    //         console.log("Rotten Tomatoes:" + response.data.Ratings[1]);
+    //         console.log("Movie Country: " + response.data.Country);
+    //         console.log("Movie Language: " + response.data.Language);
+    //         console.log("Plot: " + response.data.Plot);
+    //         console.log("Actors: " + response.data.Actors);
+    //         console.log("\n");
+    //     }).catch(function () {
+    //         console.log("Who wants a Royale with Cheese?")
+    //         })
+
+    //         return;
+    //     } 
     if (command == "movie-this") {
         axios.get(movies).then(function (response) {
             console.log("\n");
@@ -53,21 +73,11 @@ var movieThis = function () {
             console.log("Actors: " + response.data.Actors);
             console.log("\n");
         }).catch(function () {
-            axios.get(movieErr).then(function (response) {
-                console.log("\n");
-                console.log("Movie Title: " + response.data.Title);
-                console.log("Movie Year: " + response.data.Year);
-                console.log("IMDB Rating: " + response.data.imdbRating);
-                console.log("Rotten Tomatoes:" + response.data.Ratings[1]);
-                console.log("Movie Country: " + response.data.Country);
-                console.log("Movie Language: " + response.data.Language);
-                console.log("Plot: " + response.data.Plot);
-                console.log("Actors: " + response.data.Actors);
-                console.log("\n");
+            console.log("YIPPEE-KI-YAY")
             })
-        })
+        }
     }
-}
+
 
 var spotifyThis = function (command, parameter) {
     if (command == "spotify-this-song") {
@@ -93,7 +103,6 @@ var spotifyThis = function (command, parameter) {
                 })
             });
     }
-
 }
 
 var doWhatItSays = function () {
