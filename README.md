@@ -25,6 +25,8 @@ Enter the folowing into the command line to return data:
         - name of venue
         - venue location
         - date of the event. Moment was used to reformat the date to (MM/DD/YYYY)
+    Example:
+        ![image](assets/images/concert-this.png "concert-this")
 
 
 - spotify-this-song:
@@ -33,6 +35,8 @@ Enter the folowing into the command line to return data:
         - The song's name
         - Preview link of the song from Spotify. "null" is presented if no preview available.
         - The album that the song is from.
+    Example:
+        ![image](assets/images/spotify-this-song.png "spotify-this-song")
 
 - movie-this:
     - uses OMDB API
@@ -46,9 +50,13 @@ Enter the folowing into the command line to return data:
         - Plot of the movie
         - Actors in the movie
     - if no movie typed, Mr. Nobody will populate.
+    Example:
+        ![image](assets/images/movie-this.png "movie-this")
 
 - do-what-it-says:
     - this will run the random.txt file, which has a command to run in spotify.
+    Example:
+        ![image](assets/images/do-what-it-says.png "do-what-it-says")
 
 ## API's and Languages Used:
 
