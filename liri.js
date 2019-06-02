@@ -19,17 +19,23 @@ var bands = "https://rest.bandsintown.com/artists/" + parameter + "/events?app_i
 //OMDB API
 var movies = "http://www.omdbapi.com/?t=" + parameter + "&y=&plot=short&apikey=trilogy&"
 
-//node liri.js concert-this <artist/band name here>
-    //NEED:
-        //Name of Venue
-        //venue location
-        //date of the event (using moment to format as "MM/DD/YYYY")
+// node liri.js concert-this <artist/band name here>
+//     NEED:
+//         Name of Venue
+//         venue location
+//         date of the event (using moment to format as "MM/DD/YYYY")
 
-// if (command == "concert-this") {
-//     axios.get(bands).then(function(response){
-//         console.log(response.data)
-//     })
-// } 
+if (command == "concert-this") {
+    axios.get(bands).then(function(response){
+        console.log("-------------");
+        console.log("Name of Venue: " + response.data[0].venue.name);
+        console.log("Venue Location: " + response.data[0].venue.country);
+        console.log("Date of Even: " + response.data[0].datetime);
+        console.log("-------------");
+    }).catch(function(err) {
+        console.log("CHECK YOUR SPELLING!");
+    })
+} 
 
 
 // if (command == "movie-this") {
@@ -70,6 +76,13 @@ var movies = "http://www.omdbapi.com/?t=" + parameter + "&y=&plot=short&apikey=t
 // //         console.log("--------------");
 //     }) 
 //   });
+}
+
+//node liri.js do-what-it-says
+    //use fs Node package to run the random.txt file
+
+if (command == "do-what-it-says") {
+    
 }
 
 
