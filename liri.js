@@ -71,12 +71,14 @@ var spotifyThis = function (command, parameter) {
     if (command == "spotify-this-song") {
         spotify.search({ type: 'track', query: parameter })
             .then(function (data) {
+                console.log("ITWORKS")
                 for (var i = 0; i < 5; i++) {
                     console.log("\n");
                     console.log("Artist(s): " + data.tracks.items[i].artists[0].name);
                     console.log("Song Name: " + data.tracks.items[i].name);
                     console.log("Spotify Song Preview: " + data.tracks.items[i].preview_url);
                     console.log("Album Title: " + data.tracks.items[i].album.name);
+                    console.log("---------------")
                 }
             })
             .catch(function () {
@@ -90,10 +92,8 @@ var spotifyThis = function (command, parameter) {
                 })
             });
     }
-}
 
-//node liri.js do-what-it-says
-//use fs Node package to run the random.txt file
+}
 
 var doWhatItSays = function () {
     if (command == "do-what-it-says") {
@@ -103,7 +103,9 @@ var doWhatItSays = function () {
             }
 
             var dataArr = data.split(",");
-            console.log(dataArr[0], dataArr[1]);
+
+            command = dataArr[0]
+            parameter = dataArr[1]
 
             spotifyThis(dataArr[0], dataArr[1])
 
@@ -111,7 +113,7 @@ var doWhatItSays = function () {
     }
 }
 
-spotifyThis();
+spotifyThis(command, parameter);
 movieThis();
 concertThis();
 doWhatItSays();
