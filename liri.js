@@ -28,11 +28,13 @@ var movieErr = "http://www.omdbapi.com/?t=movie+43&y=&plot=short&apikey=trilogy&
 var concertThis = function() {
 if (command == "concert-this") {
     axios.get(bands).then(function(response){
-        console.log("-------------");
-        console.log("Name of Venue: " + response.data[0].venue.name);
-        console.log("Venue Location: " + response.data[0].venue.country);
-        console.log("Date of Event: " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
-        console.log("-------------");
+        for (var i = 0; i < 5; i++) {
+            console.log("-------------");
+            console.log("Name of Venue: " + response.data[i].venue.name);
+            console.log("Venue Location: " + response.data[i].venue.country);
+            console.log("Date of Event: " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
+            console.log("-------------");
+        }
     }).catch(function(err) {
         console.log("CHECK YOUR SPELLING!");
     })
@@ -73,11 +75,13 @@ var spotifyThis = function() {
 if (command == "spotify-this-song") {
     spotify.search({ type: 'track', query: parameter})
     .then(function(data) {
-        console.log("\n");
-        console.log("Artist(s): " + data.tracks.items[0].artists[0].name);
-        console.log("Song Name: " + data.tracks.items[0].name);
-        console.log("Spotify Song Preview: " + data.tracks.items[0].preview_url);
-        console.log("Album Title: " + data.tracks.items[0].album.name);
+        for (var i = 0; i < 5; i++) {
+            console.log("\n");
+            console.log("Artist(s): " + data.tracks.items[i].artists[0].name);
+            console.log("Song Name: " + data.tracks.items[i].name);
+            console.log("Spotify Song Preview: " + data.tracks.items[i].preview_url);
+            console.log("Album Title: " + data.tracks.items[i].album.name);
+        }
     }).catch(function() {
         spotify.search({ type: 'track', query: 'The Sign'}).then(function(data) {
             console.log("--------------");
