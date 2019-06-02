@@ -24,14 +24,16 @@ var movieErr = "http://www.omdbapi.com/?t=mr+nobody&y=&plot=short&apikey=trilogy
 var concertThis = function () {
     if (command == "concert-this") {
         axios.get(bands).then(function (response) {
+
+            // console.log(response.data)
             for (var i = 0; i < 5; i++) {
                 console.log("-------------");
                 console.log("Name of Venue: " + response.data[i].venue.name);
-                console.log("Venue Location: " + response.data[i].venue.country);
+                console.log("Venue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
                 console.log("Date of Event: " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
                 console.log("-------------");
             }
-        }).catch(function (err) {
+        }).catch(function() {
             console.log("CHECK YOUR SPELLING!");
         })
     }
@@ -71,7 +73,6 @@ var spotifyThis = function (command, parameter) {
     if (command == "spotify-this-song") {
         spotify.search({ type: 'track', query: parameter })
             .then(function (data) {
-                console.log("ITWORKS")
                 for (var i = 0; i < 5; i++) {
                     console.log("\n");
                     console.log("Artist(s): " + data.tracks.items[i].artists[0].name);
@@ -103,9 +104,6 @@ var doWhatItSays = function () {
             }
 
             var dataArr = data.split(",");
-
-            command = dataArr[0]
-            parameter = dataArr[1]
 
             spotifyThis(dataArr[0], dataArr[1])
 
