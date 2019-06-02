@@ -66,7 +66,7 @@ var movieThis = function () {
             console.log("Movie Title: " + response.data.Title);
             console.log("Movie Year: " + response.data.Year);
             console.log("IMDB Rating: " + response.data.imdbRating);
-            console.log("Rotten Tomatoes:" + response.data.Ratings[1]);
+            console.log("Rotten Tomatoes: " + response.data.Ratings[1].Value);
             console.log("Movie Country: " + response.data.Country);
             console.log("Movie Language: " + response.data.Language);
             console.log("Plot: " + response.data.Plot);
