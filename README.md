@@ -49,9 +49,12 @@ Enter the folowing into the command line to return data:
         - Language of the movie
         - Plot of the movie
         - Actors in the movie
-    - if no movie typed, Mr. Nobody will populate.
     Example:
         ![image](assets/images/movie-this.png "movie-this")
+        
+    - if no movie typed, Mr. Nobody will populate.
+    Example:
+        ![image](assets/images/movie-this.png "movie-this mr nobody")
 
 - do-what-it-says:
     - this will run the random.txt file, which has a command to run in spotify.
