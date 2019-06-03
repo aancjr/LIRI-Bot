@@ -54,7 +54,7 @@ Enter the folowing into the command line to return data:
         
     - if no movie typed, Mr. Nobody will populate.
     Example:
-        ![image](assets/images/movie-this.png "movie-this mr nobody")
+        ![image](assets/images/movie-this-mr-nobody.png "movie-this mr nobody")
 
 - do-what-it-says:
     - this will run the random.txt file, which has a command to run in spotify.
