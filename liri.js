@@ -22,7 +22,7 @@ var movies = "http://www.omdbapi.com/?t=" + parameter + "&y=&plot=short&apikey=t
 var movieErr = "http://www.omdbapi.com/?t=mr+nobody&y=&plot=short&apikey=trilogy&"
 
 var concertThis = function () {
-    if (command == "concert-this") {
+    if (command === "concert-this") {
         axios.get(bands).then(function (response) {
 
             // console.log(response.data)
@@ -59,7 +59,8 @@ var movieThis = function () {
 
             return;
         } 
-    if (command == "movie-this") {
+
+    if (command === "movie-this") {
         axios.get(movies).then(function (response) {
             console.log("\n");
             console.log("Movie Title: " + response.data.Title);
@@ -79,7 +80,7 @@ var movieThis = function () {
 
 
 var spotifyThis = function (command, parameter) {
-    if (command == "spotify-this-song") {
+    if (command === "spotify-this-song") {
         spotify.search({ type: 'track', query: parameter })
             .then(function (data) {
                 for (var i = 0; i < 5; i++) {
@@ -105,7 +106,7 @@ var spotifyThis = function (command, parameter) {
 }
 
 var doWhatItSays = function () {
-    if (command == "do-what-it-says") {
+    if (command === "do-what-it-says") {
         fs.readFile("random.txt", "utf-8", function (err, data) {
             if (err) {
                 return console.log(err);
