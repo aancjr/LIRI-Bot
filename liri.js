@@ -33,6 +33,8 @@ var concertThis = function () {
                         + response.data[i].venue.region + " " + response.data[i].venue.country);
                 console.log("Date of Event: " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
                 console.log("-------------");
+
+                return;
             }
         }).catch(function() {
             console.log("CHECK YOUR SPELLING!");
@@ -60,7 +62,7 @@ var movieThis = function () {
             return;
         } 
 
-    if (command === "movie-this") {
+    else if (command === "movie-this") {
         axios.get(movies).then(function (response) {
             console.log("\n");
             console.log("Movie Title: " + response.data.Title);
@@ -111,11 +113,9 @@ var doWhatItSays = function () {
             if (err) {
                 return console.log(err);
             }
-
             var dataArr = data.split(",");
 
             spotifyThis(dataArr[0], dataArr[1])
-
         })
     }
 }
